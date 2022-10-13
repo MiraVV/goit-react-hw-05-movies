@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Nav, NavElement } from './Layout.styled';
+import { Nav, NavElement } from './NavBar.styled';
+import Loader from 'components/Loader/Loader';
 
-export const Layout = () => {
+export const NavBar = () => {
   return (
     <div>
       <header>
@@ -13,7 +14,7 @@ export const Layout = () => {
           <NavElement to="/movies">Movies</NavElement>
         </Nav>
       </header>
-      <Suspense fallback={<div>Loading page...</div>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </div>

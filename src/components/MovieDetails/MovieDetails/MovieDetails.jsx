@@ -40,6 +40,7 @@ export default function MovieDetails() {
   }, [id]);
 
   const goBack = () => {
+    console.log(location);
     navigate(from);
   };
 

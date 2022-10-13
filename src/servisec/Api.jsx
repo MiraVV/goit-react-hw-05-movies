@@ -3,12 +3,16 @@ const BASE_URL = 'https://api.themoviedb.org/3';
 
 export function fetchTrending() {
   const URL = `${BASE_URL}/trending/movie/day?api_key=${API_KEY}`;
-  return fetch(URL).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-    return Promise.reject(new Error(`Something went wrong!`));
-  });
+  return fetch(URL)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(new Error(`Something went wrong!`));
+    })
+    .then(response => {
+      return response.results;
+    });
 }
 
 export function fetchMovie(movieId) {
@@ -43,10 +47,14 @@ export function fetchMovieReview(movieId) {
 
 export function fetchQuery(query) {
   const URL = `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`;
-  return fetch(URL).then(response => {
-    if (response.ok) {
-      return response.json();
-    }
-    return Promise.reject(new Error(`Something weent wrong!`));
-  });
+  return fetch(URL)
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      return Promise.reject(new Error(`Something weent wrong!`));
+    })
+    .then(response => {
+      return response.results;
+    });
 }

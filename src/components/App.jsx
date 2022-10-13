@@ -1,10 +1,10 @@
-import { Layout } from './Layout/Layout';
+import { NavBar } from './NavBar/NavBar';
 import UserRout from './UserRout';
 
 export const App = () => {
   return (
     <div>
-      <Layout />
+      <NavBar />
       <UserRout />
     </div>
   );
